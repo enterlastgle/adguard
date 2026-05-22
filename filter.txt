@@ -1,8 +1,26 @@
 ! Title: 애드가드 개인 필터
 ! Version: 2026.05.22
 
-||sbxh1.com/js/ads.js
-||sbxh1.com/assets/js/detector.js
-||sbxh1.com^$script,third-party,domain=~cloudflare.com
-||sbxh1.com^$csp=script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com
-sbxh1.com##+js(nobab)
+! ===== sbxh1.com final =====
+
+! 1) closed shadowroot 호스트 제거
+sbxh1.com##div:has(> template[shadowrootmode="closed"])
+sbxh1.com##body > div:has(> template[shadowrootmode="closed"])
+
+! 2) 재삽입되는 fullscreen 오버레이 제거
+sbxh1.com##div:matches-css(position: fixed):matches-css(inset: 0px):matches-css(z-index: 2147483647)
+sbxh1.com##div:matches-css(width: 100vw):matches-css(height: 100vh):matches-css(backdrop-filter: blur(8px))
+
+! 3) 스크립트 재생성 차단
+sbxh1.com##+js(set-constant, adBlockDetected, false)
+sbxh1.com##+js(set-constant, adblockDetected, false)
+sbxh1.com##+js(set-constant, adblock, false)
+sbxh1.com##+js(abort-on-property-read, adBlockDetected)
+sbxh1.com##+js(abort-on-property-write, adBlockDetected)
+sbxh1.com##+js(abort-on-property-read, adblockDetected)
+sbxh1.com##+js(abort-on-property-write, adblockDetected)
+sbxh1.com##+js(prevent-setTimeout, /adblock|antiadblock|blocker|detected/i)
+sbxh1.com##+js(prevent-setInterval, /adblock|antiadblock|blocker|detected/i)
+
+! 4) 페이지 잠금 해제
+sbxh1.com#$#html, body { overflow:auto !important; position:static !important; pointer-events:auto !important; }
