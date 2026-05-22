@@ -1,3 +1,6 @@
+! Title: 애드가드 개인 필터
+! Version: 2026.05.22
+
 ||sbxh1.com/js/ads.js
 ||sbxh1.com/assets/js/detector.js
 ||sbxh1.com^$script,third-party,domain=~cloudflare.com
