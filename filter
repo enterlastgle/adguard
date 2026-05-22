@@ -1,0 +1,5 @@
+||sbxh1.com/js/ads.js
+||sbxh1.com/assets/js/detector.js
+||sbxh1.com^$script,third-party,domain=~cloudflare.com
+||sbxh1.com^$csp=script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com
+sbxh1.com##+js(nobab)
