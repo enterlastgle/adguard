@@ -24,3 +24,12 @@ sbxh1.com##+js(prevent-setInterval, /adblock|antiadblock|blocker|detected/i)
 
 ! 4) 페이지 잠금 해제
 sbxh1.com#$#html, body { overflow:auto !important; position:static !important; pointer-events:auto !important; }
+
+
+! sbxh1.com mobile
+||sbxh1.com^$removeparam=utm_*
+sbxh1.com##div:has(> template[shadowrootmode="closed"])
+sbxh1.com##body > div:has(> template[shadowrootmode="closed"])
+sbxh1.com##div:matches-css(position: fixed):matches-css(inset: 0px):matches-css(z-index: 2147483647)
+sbxh1.com##div:matches-css(width: 100vw):matches-css(height: 100vh):matches-css(backdrop-filter: blur(8px))
+sbxh1.com#$#html,body{overflow:auto!important;position:static!important;pointer-events:auto!important;}
